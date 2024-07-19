@@ -3,7 +3,10 @@ it('highlights the input element', () => {
 
   const border = '3px solid red'
   cy.get('input[aria-label="Search the web"]').then(($el) => {
-    $el[0].style.border = border
+    $el.css({
+      background: 'yellow',
+      border,
+    })
   })
   cy.screenshot('input-highlighted', {
     overwrite: true,
