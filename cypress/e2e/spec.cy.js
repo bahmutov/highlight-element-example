@@ -1,12 +1,10 @@
+/// <reference types="cypress" />
+
 it('highlights the input element', () => {
   cy.visit('/')
-
-  const border = '3px solid red'
-  cy.get('input[aria-label="Search the web"]').then(($el) => {
-    $el.css({
-      background: 'yellow',
-      border,
-    })
+  cy.get('input[aria-label="Search the web"]').invoke('css', {
+    background: 'yellow',
+    border: '3px solid red',
   })
   cy.screenshot('input-highlighted', {
     overwrite: true,
